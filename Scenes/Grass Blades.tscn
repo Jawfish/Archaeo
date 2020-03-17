@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Images/Grass.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Grass Blades.gd" type="Script" id=2]
+
+[node name="Grass Blades" type="Node2D"]
+position = Vector2( 0, -1 )
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Grass" type="Sprite" parent="."]
+position = Vector2( -0.00377321, 0.985818 )
+scale = Vector2( 1, 2 )
+texture = ExtResource( 1 )
+offset = Vector2( 0.00377321, -0.492909 )
