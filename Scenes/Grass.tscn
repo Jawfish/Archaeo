@@ -7,26 +7,23 @@
 [node name="Tile" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Grass Blades" parent="Sprite" index="0" instance=ExtResource( 3 )]
-position = Vector2( -7, -9 )
+[node name="Sprite" parent="." index="0"]
+z_index = 4
 
-[node name="Grass Blades2" parent="Sprite" index="1" instance=ExtResource( 3 )]
-position = Vector2( -5, -9 )
+[node name="Grass Blades2" parent="Sprite" index="0" instance=ExtResource( 3 )]
+position = Vector2( -6, -9 )
 
-[node name="Grass Blades3" parent="Sprite" index="2" instance=ExtResource( 3 )]
+[node name="Grass Blades3" parent="Sprite" index="1" instance=ExtResource( 3 )]
 position = Vector2( -3, -9 )
 
-[node name="Grass Blades4" parent="Sprite" index="3" instance=ExtResource( 3 )]
-position = Vector2( -1, -9 )
+[node name="Grass Blades5" parent="Sprite" index="2" instance=ExtResource( 3 )]
+position = Vector2( 0, -9 )
 
-[node name="Grass Blades5" parent="Sprite" index="4" instance=ExtResource( 3 )]
-position = Vector2( 1, -9 )
-
-[node name="Grass Blades6" parent="Sprite" index="5" instance=ExtResource( 3 )]
+[node name="Grass Blades6" parent="Sprite" index="3" instance=ExtResource( 3 )]
 position = Vector2( 3, -9 )
 
-[node name="Grass Blades7" parent="Sprite" index="6" instance=ExtResource( 3 )]
-position = Vector2( 5, -9 )
+[node name="Grass Blades8" parent="Sprite" index="4" instance=ExtResource( 3 )]
+position = Vector2( 6, -9 )
 
-[node name="Grass Blades8" parent="Sprite" index="7" instance=ExtResource( 3 )]
-position = Vector2( 7, -9 )
+[node name="StaticBody2D" parent="." index="1"]
+collision_layer = 4

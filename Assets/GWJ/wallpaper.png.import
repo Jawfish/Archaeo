@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pawn.svg-8ccc2c06a36cc2be0e92c8dad8e988d7.stex"
+path="res://.import/wallpaper.png-a5459abf3d55e312089570dcd8f79c84.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Pawn.svg"
-dest_files=[ "res://.import/Pawn.svg-8ccc2c06a36cc2be0e92c8dad8e988d7.stex" ]
+source_file="res://Assets/GWJ/wallpaper.png"
+dest_files=[ "res://.import/wallpaper.png-a5459abf3d55e312089570dcd8f79c84.stex" ]
 
 [params]
 
@@ -21,8 +21,8 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
-flags/anisotropic=true
+flags/mipmaps=false
+flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false

@@ -9,18 +9,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="183.98949"
-   height="183.98949"
-   viewBox="0 0 43.812503 43.812501"
+   width="131.68784mm"
+   height="82.398186mm"
+   viewBox="0 0 131.68784 82.398186"
    version="1.1"
-   id="svg836"
-   inkscape:export-filename="/home/james/Development/Archaeo/Assets/Images/singleplayer.png"
-   inkscape:export-xdpi="137.23"
-   inkscape:export-ydpi="137.23"
+   id="svg2156"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="Pawn.svg">
+   sodipodi:docname="panel.svg">
   <defs
-     id="defs830" />
+     id="defs2150" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -28,25 +25,23 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.6265625"
-     inkscape:cx="98.300743"
-     inkscape:cy="119.7926"
+     inkscape:zoom="1.6488281"
+     inkscape:cx="87.805012"
+     inkscape:cy="97.395173"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
      inkscape:window-width="3440"
      inkscape:window-height="1376"
      inkscape:window-x="2560"
      inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     fit-margin-top="50"
-     fit-margin-left="50"
-     fit-margin-right="50"
-     fit-margin-bottom="50"
-     scale-x="0.9"
-     units="px" />
+     inkscape:window-maximized="1" />
   <metadata
-     id="metadata833">
+     id="metadata2153">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -61,14 +56,14 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-59.719962,-119.3025)">
-    <circle
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.26618588;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path2050"
-       cx="81.626213"
-       cy="141.20876"
-       r="9.3669071"
-       inkscape:export-xdpi="650.23999"
-       inkscape:export-ydpi="650.23999" />
+     transform="translate(-49.86622,-92.20429)">
+    <rect
+       style="fill:#1b2a48;fill-opacity:1;stroke:#fa6149;stroke-width:2.64583325;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2701"
+       width="129.04201"
+       height="79.75235"
+       x="51.189137"
+       y="93.527206"
+       ry="18.614231" />
   </g>
 </svg>

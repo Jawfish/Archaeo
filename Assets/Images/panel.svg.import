@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pawn.svg-8ccc2c06a36cc2be0e92c8dad8e988d7.stex"
+path="res://.import/panel.svg-6ec41fdc36a55968b0e83440a046e23f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Pawn.svg"
-dest_files=[ "res://.import/Pawn.svg-8ccc2c06a36cc2be0e92c8dad8e988d7.stex" ]
+source_file="res://Assets/Images/panel.svg"
+dest_files=[ "res://.import/panel.svg-6ec41fdc36a55968b0e83440a046e23f.stex" ]
 
 [params]
 
@@ -31,4 +31,4 @@ process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=1.0
+svg/scale=0.5

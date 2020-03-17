@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pawn.svg-8ccc2c06a36cc2be0e92c8dad8e988d7.stex"
+path="res://.import/castle.svg-ae2cc743ae13a60e092f9e323a87cf58.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Pawn.svg"
-dest_files=[ "res://.import/Pawn.svg-8ccc2c06a36cc2be0e92c8dad8e988d7.stex" ]
+source_file="res://Assets/Images/castle.svg"
+dest_files=[ "res://.import/castle.svg-ae2cc743ae13a60e092f9e323a87cf58.stex" ]
 
 [params]
 

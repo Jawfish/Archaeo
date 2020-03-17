@@ -4,6 +4,7 @@ onready var sprite = $Grass
 onready var tween = $Tween
 
 func _ready() -> void:
+	scale.y = rand_range(1,3)
 	var not_green = rand_range(0,0.8)
 	modulate = Color(not_green,1,not_green,Autoload.random(0,1))
 	z_index = Autoload.random(-1,1)

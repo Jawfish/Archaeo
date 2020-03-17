@@ -1,0 +1,383 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/GWJ/BEBAS.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Images/Grass.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GWJ/head_bg_less.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GWJ/GWJ-19-WC-1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GWJ/GWJ-19-WC-3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/GWJ/GWJ-19-WC-2.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Play.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Images/Play.svg" type="Texture" id=8]
+[ext_resource path="res://Assets/GWJ/discovery.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/SplashCamera.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Wildcard.gd" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 92
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 111.206, 151.156 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Mouse Enter"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Mouse Exit"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Mouse Enter"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Mouse Exit"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Mouse Enter"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Mouse Exit"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Init"
+length = 7.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Wildcards/GWJ-19-WC-1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 200, 700 ), Vector2( 200, 700 ), Vector2( 200, 300 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Wildcards/GWJ-19-WC-2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500, 700 ), Vector2( 500, 700 ), Vector2( 500, 300 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Wildcards/GWJ-19-WC-3:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 5, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 800, 700 ), Vector2( 800, 700 ), Vector2( 800, 300 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Play:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5.5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 504.171, -60 ), Vector2( 504.171, -60 ), Vector2( 504.171, 90 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Camera2D:trauma")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4.5, 5, 5.5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 0.33, 0.33, 0.33, 0.5 ]
+}
+
+[node name="Splash" type="Node"]
+
+[node name="BG" type="Sprite" parent="."]
+modulate = Color( 0.0784314, 0.133333, 0.25098, 1 )
+position = Vector2( 1577.46, 785.934 )
+scale = Vector2( 2000, 1000 )
+z_index = -999
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Logo" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -75 )
+
+[node name="Head" type="Sprite" parent="Logo"]
+position = Vector2( 635.616, 284.902 )
+scale = Vector2( 0.295, 0.295 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Logo"]
+margin_left = 270.102
+margin_top = 112.435
+margin_right = 508.102
+margin_bottom = 469.435
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+text = "GODOT
+WILD
+JAM
+#19"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="discovery" type="Sprite" parent="Logo"]
+position = Vector2( 508.675, 583.955 )
+scale = Vector2( 0.676911, 0.676911 )
+texture = ExtResource( 9 )
+
+[node name="Wildcards" type="Node2D" parent="."]
+position = Vector2( 10, 125 )
+
+[node name="GWJ-19-WC-1" type="Sprite" parent="Wildcards"]
+position = Vector2( 200, 300 )
+texture = ExtResource( 4 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Wildcards/GWJ-19-WC-1"]
+modulate = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wildcards/GWJ-19-WC-1/Area2D"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Wildcards/GWJ-19-WC-1/Area2D"]
+margin_left = -140.79
+margin_top = -224.723
+margin_right = 147.21
+margin_bottom = -159.723
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0784314, 0.133333, 0.25098, 1 )
+custom_colors/font_outline_modulate = Color( 0.980392, 0.380392, 0.286275, 1 )
+text = "No     words     appear
+beyond     this     screen"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WCAnimation" type="AnimationPlayer" parent="Wildcards/GWJ-19-WC-1/Area2D"]
+"anims/Mouse Enter" = SubResource( 4 )
+"anims/Mouse Exit" = SubResource( 5 )
+
+[node name="GWJ-19-WC-2" type="Sprite" parent="Wildcards"]
+position = Vector2( 500, 300 )
+texture = ExtResource( 6 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Wildcards/GWJ-19-WC-2"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wildcards/GWJ-19-WC-2/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Label2" type="Label" parent="Wildcards/GWJ-19-WC-2/Area2D"]
+margin_left = -225.552
+margin_top = -259.018
+margin_right = 221.448
+margin_bottom = -160.018
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0784314, 0.133333, 0.25098, 1 )
+custom_colors/font_outline_modulate = Color( 0.980392, 0.380392, 0.286275, 1 )
+text = "Colorblind     options
+motion      sickness     options
+ambidextrous     control    scheme"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WCAnimation" type="AnimationPlayer" parent="Wildcards/GWJ-19-WC-2/Area2D"]
+"anims/Mouse Enter" = SubResource( 6 )
+"anims/Mouse Exit" = SubResource( 7 )
+
+[node name="GWJ-19-WC-3" type="Sprite" parent="Wildcards"]
+position = Vector2( 800, 300 )
+texture = ExtResource( 5 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Wildcards/GWJ-19-WC-3"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wildcards/GWJ-19-WC-3/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Label3" type="Label" parent="Wildcards/GWJ-19-WC-3/Area2D"]
+margin_left = -169.28
+margin_top = -213.745
+margin_right = 169.72
+margin_bottom = -159.745
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0784314, 0.133333, 0.25098, 1 )
+custom_colors/font_outline_modulate = Color( 0.980392, 0.380392, 0.286275, 1 )
+text = "tiles    can    be    destroyed"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WCAnimation" type="AnimationPlayer" parent="Wildcards/GWJ-19-WC-3/Area2D"]
+"anims/Mouse Enter" = SubResource( 8 )
+"anims/Mouse Exit" = SubResource( 9 )
+
+[node name="Play" type="Sprite" parent="."]
+position = Vector2( 504.171, -60 )
+scale = Vector2( 0.476881, 0.476881 )
+z_index = -1
+texture = ExtResource( 8 )
+script = ExtResource( 7 )
+
+[node name="TextureButton" type="TextureButton" parent="Play"]
+margin_left = -226.32
+margin_top = -146.358
+margin_right = 225.68
+margin_bottom = 149.642
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 510.433, 310 )
+current = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+trauma = 0.33
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Init"
+anims/Init = SubResource( 10 )
+[connection signal="mouse_entered" from="Wildcards/GWJ-19-WC-1/Area2D" to="Wildcards/GWJ-19-WC-1" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Wildcards/GWJ-19-WC-1/Area2D" to="Wildcards/GWJ-19-WC-1" method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="Wildcards/GWJ-19-WC-2/Area2D" to="Wildcards/GWJ-19-WC-2" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Wildcards/GWJ-19-WC-2/Area2D" to="Wildcards/GWJ-19-WC-2" method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="Wildcards/GWJ-19-WC-3/Area2D" to="Wildcards/GWJ-19-WC-3" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Wildcards/GWJ-19-WC-3/Area2D" to="Wildcards/GWJ-19-WC-3" method="_on_Area2D_mouse_exited"]
+[connection signal="button_down" from="Play/TextureButton" to="Play" method="_on_TextureButton_button_down"]

@@ -2,20 +2,15 @@ extends Node
 
 var pawn: PackedScene = preload("res://Scenes/Pawn.tscn")
 
-var placing_pawn: bool = false
 var timer = 10
-
+var happiness = 100
 
 
 func _process(delta: float) -> void:
+	happiness -= 0.01
 	if timer > 0:
 		timer -= 1
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_released("click") and timer == 0 and placing_pawn:
-		timer = 10
-		var pawn_instance = pawn.instance()
-		$".".add_child(pawn_instance)
 
 func random(a: int, b:int):
 	randomize()
@@ -23,3 +18,10 @@ func random(a: int, b:int):
 		return a
 	else:
 		return b
+
+func place_pawn(position: Vector2):
+		if happiness > 0:
+			print('Pawn Spawned')	
+			var pawn_instance = pawn.instance()
+			pawn_instance.position = position
+			$".".add_child(pawn_instance)
