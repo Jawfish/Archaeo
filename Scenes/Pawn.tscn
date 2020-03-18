@@ -36,7 +36,9 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -12 ), Vector2( 0, -16 ), Vector2( 0, -16 ), Vector2( 0, -12 ) ]
 }
 
-[node name="Pawn" type="KinematicBody2D"]
+[node name="Pawn" type="KinematicBody2D" groups=[
+"Pawns",
+]]
 scale = Vector2( 0.25, 0.25 )
 collision_mask = 2
 script = ExtResource( 2 )

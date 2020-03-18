@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Archaeo"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/Splash.tscn"
 
 [autoload]
 

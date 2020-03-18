@@ -8,6 +8,8 @@ var hover:bool = false
 
 func _process(delta: float) -> void:
 	if health <= 0:
+		if Autoload.camera_shake:
+			get_parent().find_node("Camera2D").trauma = 0.1
 		queue_free()
 	if hover:
 		if Input.is_action_pressed("click"):
