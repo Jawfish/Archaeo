@@ -13,8 +13,8 @@ extents = Vector2( 11.8665, 813.001 )
 script = ExtResource( 2 )
 
 [node name="Sky" type="Sprite" parent="."]
-position = Vector2( 1583.69, 301.288 )
-scale = Vector2( 3300.81, 742.982 )
+position = Vector2( 1583.69, 38021.9 )
+scale = Vector2( 3300.81, 76184.3 )
 z_index = -999
 texture = ExtResource( 4 )
 
@@ -39,9 +39,11 @@ z_index = -5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -18, 900 )
+scale = Vector2( 1, 100 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 340, 900 )
+scale = Vector2( 1, 100 )
 shape = SubResource( 1 )
 [connection signal="spawn_pawn" from="UI" to="." method="_on_UI_spawn_pawn"]

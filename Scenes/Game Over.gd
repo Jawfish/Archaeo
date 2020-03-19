@@ -4,7 +4,11 @@ extends Node
 onready var score = $Score
 
 func _ready() -> void:
-	score.text = "Depth    Reached: 0"
+	Input.set_custom_mouse_cursor(null)
+	if Autoload.depth > 0:
+		score.text = "Depth    Reached: " + str((floor(Autoload.depth / 16)) - 12)
+	else:
+		score.text = "Depth    Reached: " + str(0)
 	$AnimationPlayer.play("Init")
 
 

@@ -3,7 +3,7 @@ extends Node2D
 var grass: PackedScene = preload("res://Scenes/Grass.tscn")
 var dirt: PackedScene = preload("res://Scenes/Dirt.tscn")
 var rock: PackedScene = preload("res://Scenes/Rock.tscn")
-const TILE_SIZE: int = 16
+const TILE_SIZE: int = 16	
 onready var viewport: Vector2 = get_viewport_rect().size
 export var sky_height: int = 13
 export var grass_height: int = 14
@@ -12,6 +12,7 @@ onready var MAP_WIDTH: int = 32
 onready var MAP_HEIGHT: int = 94
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(Autoload.cursor)
 	for x in MAP_WIDTH:
 		for y in MAP_HEIGHT:
 			if y * TILE_SIZE < sky_height * TILE_SIZE:

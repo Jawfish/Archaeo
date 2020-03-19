@@ -20,10 +20,11 @@ func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)
 	
 func _process(delta):
-	randomize()
-	if trauma:
-		trauma = max(trauma - decay * delta, 0)
-		shake()
+	if not Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up"):
+		randomize()
+		if trauma:
+			trauma = max(trauma - decay * delta, 0)
+			shake()
 		
 func shake():
 	var amount = pow(trauma, trauma_power)

@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var gravity_vector: Vector2 = Vector2(0, 400)
-export var cost = 10
 export var move_speed_min:int = 22
 export var move_speed_max:int = 28
 var move_speed:float = 25
@@ -24,7 +23,6 @@ var skin_tones: Array = [Color(0.55,0.33,.14), Color(0.77,0.52,0.25), Color(0.87
 var velocity: Vector2 = Vector2(0, 0)
 
 func _ready() -> void:
-	Autoload.happiness -= cost
 	randomize()
 	move_speed = rand_range(move_speed_min, move_speed_max)
 	anim.playback_speed = move_speed / move_speed_max
@@ -38,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = dir * move_speed
 	flip_timer -= 1
 	if is_on_wall() and flip_timer <= 0:
-		flip_timer = rand_range(10,500)
+		flip_timer = rand_range(100,200)
 		dir = -dir
 	if left_ray.is_colliding():
 		if left_ray.get_collider().get_parent().marked_for_digging == true:
