@@ -56,7 +56,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 4, 4.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 214, 256.5 ), Vector2( 214, 256.5 ), Vector2( 214, 144.5 ) ]
+"values": [ Vector2( 100, 256.5 ), Vector2( 100, 256.5 ), Vector2( 100, 150 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Play Again:modulate")
@@ -106,13 +106,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -298.0
-margin_top = -155.5
-margin_right = 298.0
-margin_bottom = -68.5
+margin_left = -412.0
+margin_top = -150.0
+margin_right = 333.0
+margin_bottom = -63.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.0784314, 0.133333, 0.25098, 1 )
-text = "Depth Reached:"
+text = "GEMS    DISCOVERED:    "
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -34,9 +34,12 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	velocity += gravity_vector * delta
 	velocity.x = dir * move_speed
-	flip_timer -= 1
+	if is_on_wall():
+		flip_timer -= 1
+	else:
+		flip_timer = 25
 	if is_on_wall() and flip_timer <= 0:
-		flip_timer = rand_range(100,200)
+		flip_timer = 25
 		dir = -dir
 	if left_ray.is_colliding():
 		if left_ray.get_collider().get_parent().marked_for_digging == true:
@@ -59,4 +62,4 @@ func random_skin_tone():
 	
 func dig(block):
 	block.get_parent().dig(dig_strength)
-	velocity = Vector2(0,0)
+	velocity.x = 0

@@ -10,6 +10,10 @@ export var grass_height: int = 14
 export var dirt_height: int = 26
 onready var MAP_WIDTH: int = 32
 onready var MAP_HEIGHT: int = 94
+onready var light: Light2D = $Light2D
+
+func _process(delta: float) -> void:
+	light.position = get_global_mouse_position()
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(Autoload.cursor)
@@ -32,3 +36,4 @@ func _ready() -> void:
 				rock_tile.position = Vector2(x * TILE_SIZE, y * TILE_SIZE)
 				rock_tile.index  = Vector2(x, y)
 				$".".add_child(rock_tile)
+	Autoload.map_generated = true

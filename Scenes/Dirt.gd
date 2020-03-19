@@ -5,7 +5,6 @@ extends Tile
 # var a: int = 2
 # var b: String = "text"
 onready var ray = $RayCast2D
-onready var sprite = $Sprite
 var is_under_grass: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

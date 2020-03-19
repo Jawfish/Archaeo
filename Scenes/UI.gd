@@ -4,6 +4,7 @@ signal spawn_pawn
 onready var anim: AnimationPlayer = $AnimationPlayer
 onready var progress: Label = $Happiness/Label
 onready var pop: Label = $Population/Label
+onready var gems: Label = $Gem/Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,6 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	progress.text = str(floor(Autoload.happiness))
 	pop.text = str(Autoload.pop) + "/" + str(Autoload.pop_cap)
+	gems.text = str(Autoload.gems)
 	
 
 func _on_SpawnPawn_toggled(button_pressed: bool) -> void:

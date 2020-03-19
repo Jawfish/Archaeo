@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/World.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Images/Sky.jpeg" type="Texture" id=4]
 [ext_resource path="res://Scenes/Castle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Images/image.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.8665, 813.001 )
@@ -46,4 +47,10 @@ shape = SubResource( 1 )
 position = Vector2( 340, 900 )
 scale = Vector2( 1, 100 )
 shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+texture = ExtResource( 6 )
+texture_scale = 0.33
+color = Color( 1, 1, 1, 0.529412 )
 [connection signal="spawn_pawn" from="UI" to="." method="_on_UI_spawn_pawn"]

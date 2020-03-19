@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Images/Spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Tile.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/Grass.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/clock_plus.svg" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/clock_minus.svg" type="Texture" id=5]
+[ext_resource path="res://Assets/Images/Pawn.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Images/plus.svg" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/gem.svg" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -18,10 +23,25 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 0.02, 0.03, 0.04, 0.05 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ 0.0, -10.0, 10.0, -10.0, 10.0, 0.0 ]
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Gem Found"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gem:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -37,7 +57,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -200 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -300 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:modulate")
@@ -63,6 +83,59 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Powerup1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Powerup2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Powerup3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "view_update"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 26.1841, 25.8159 )
 
 [node name="Tile" type="Node2D" groups=[
 "Tiles",
@@ -71,11 +144,35 @@ z_index = 9
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 0, -200 )
-scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 1 )
 region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Powerup1" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.02, 0.02 )
+z_index = 50
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Powerup2" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 0.00392157, 0.878431, 0.321569, 1 )
+scale = Vector2( 0.01, 0.01 )
+z_index = 50
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Sprite" type="Sprite" parent="Powerup2"]
+position = Vector2( 500, 0 )
+scale = Vector2( 2.25533, 2.25533 )
+texture = ExtResource( 7 )
+
+[node name="Powerup3" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.02, 0.02 )
+z_index = 50
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -105,6 +202,25 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Dig = SubResource( 2 )
+"anims/Gem Found" = SubResource( 5 )
 anims/Init = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Gem" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.0540828, 0.0540827 )
+z_index = 60
+texture = ExtResource( 8 )
+
+[node name="Discover Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Discover Area"]
+shape = SubResource( 4 )
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="mouse_entered" from="Discover Area" to="." method="_on_Discover_Area_mouse_entered"]
+[connection signal="mouse_exited" from="Discover Area" to="." method="_on_Discover_Area_mouse_exited"]
