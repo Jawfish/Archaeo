@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/GWJ/BEBAS.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Images/Grass.png" type="Texture" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://Assets/GWJ/discovery.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/SplashCamera.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Wildcard.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Sounds/grind.wav" type="AudioStream" id=12]
+[ext_resource path="res://Scenes/Splash.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Sounds/grind2.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Sounds/clunk.wav" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 92
@@ -121,7 +125,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=10]
 resource_name = "Init"
 length = 7.0
-step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo:modulate")
 tracks/0/interp = 2
@@ -194,8 +197,44 @@ tracks/5/keys = {
 "update": 1,
 "values": [ 0.0, 0.33, 0.33, 0.33, 0.5 ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 4.1, 4.5, 4.6, 5, 5.1, 5.5, 5.501, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_sound"
+}, {
+"args": [  ],
+"method": "play_clunk"
+}, {
+"args": [  ],
+"method": "play_sound"
+}, {
+"args": [  ],
+"method": "play_clunk"
+}, {
+"args": [  ],
+"method": "play_sound"
+}, {
+"args": [  ],
+"method": "play_sound2"
+}, {
+"args": [  ],
+"method": "play_clunk"
+}, {
+"args": [  ],
+"method": "play_big_clunk"
+} ]
+}
 
 [node name="Splash" type="Node"]
+script = ExtResource( 13 )
 
 [node name="BG" type="Sprite" parent="."]
 modulate = Color( 0.0784314, 0.133333, 0.25098, 1 )
@@ -348,7 +387,7 @@ __meta__ = {
 "anims/Mouse Exit" = SubResource( 9 )
 
 [node name="Play" type="Sprite" parent="."]
-position = Vector2( 504.171, -60 )
+position = Vector2( 504.171, 90 )
 scale = Vector2( 0.476881, 0.476881 )
 z_index = -1
 texture = ExtResource( 8 )
@@ -370,11 +409,20 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
-trauma = 0.33
+trauma = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Init"
 anims/Init = SubResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Grind2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="Clunk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
 [connection signal="mouse_entered" from="Wildcards/GWJ-19-WC-1/Area2D" to="Wildcards/GWJ-19-WC-1" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Wildcards/GWJ-19-WC-1/Area2D" to="Wildcards/GWJ-19-WC-1" method="_on_Area2D_mouse_exited"]
 [connection signal="mouse_entered" from="Wildcards/GWJ-19-WC-2/Area2D" to="Wildcards/GWJ-19-WC-2" method="_on_Area2D_mouse_entered"]

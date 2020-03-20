@@ -1,19 +1,13 @@
 extends Node2D
 
-var powerup = 0
+func _process(delta: float) -> void:
+	position.y += 100 * delta
 
-func _ready() -> void:
-	powerup = floor(rand_range(1,3))
-	if powerup == 1:
-		scale.x = 0.02
-		scale.y = 0.02
-		$Sprite.texture = load("res://Assets/Images/clock.svg")
-	elif powerup == 2:
-		scale.x = 0.02
-		scale.y = 0.02
-		$Sprite.texture = load("res://Assets/Images/happy.png")
-	else:
-		scale.x = 0.02
-		scale.y = 0.02
-		$Sprite.texture = load("res://Assets/Images/happy.png")
 
+func _on_TextureButton_button_down() -> void:
+	$TextureButton.disabled = true
+	Autoload.happiness += 5
+	$AnimationPlayer.play("Ded")
+
+func _on_Timer_timeout() -> void:
+	queue_free()

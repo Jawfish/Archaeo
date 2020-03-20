@@ -8,8 +8,9 @@ onready var ray = $RayCast2D
 var is_under_grass: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	health = 1000
-	max_health = 1000
+	max_health = 500
+	health = 500
+
 
 	
 func _physics_process(delta: float) -> void:

@@ -3,6 +3,7 @@ extends Node
 var pawn: PackedScene = preload("res://Scenes/Pawn.tscn")
 var world: PackedScene = preload("res://Scenes/World.tscn")
 var cursor = load("res://Assets/Images/cursor.png")
+var bomb_cursor = load("res://Assets/Images/bomb_cursor.png")
 var discover_area = preload("res://Scenes/Discover Area.tscn")
 onready var powerup_1_sprite = load("res://Assets/Images/clock.svg")
 onready var powerup_2_sprite = load("res://Assets/Images/Pawn.png")
@@ -22,6 +23,11 @@ var pop_cap = 10
 var depth = 0
 var gems = 0
 var map_generated: bool = false
+var left: bool = true
+var bombing = false
+var mouse_pos
+var woosh = load("res://Assets/Sounds/woosh.wav")
+var click = load("res://Assets/Sounds/click.wav")
 
 func _process(delta: float) -> void:
 	if map_generated:
@@ -34,7 +40,7 @@ func _process(delta: float) -> void:
 			pawn.queue_free()
 		get_tree().change_scene("res://Scenes/Game Over.tscn")
 
-func random(a: int, b:int):
+func random(a, b):
 	randomize()
 	if randi() % 2 == 0:
 		return a

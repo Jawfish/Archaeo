@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var sprite = $Grass
-onready var tween = $Tween
 
 func _ready() -> void:
 	scale.y = rand_range(1,3)

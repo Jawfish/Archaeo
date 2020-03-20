@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/grind.wav-e41120a859f5e2095a674047e9e60f19.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/grind.wav"
+dest_files=[ "res://.import/grind.wav-e41120a859f5e2095a674047e9e60f19.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,11 +1,10 @@
 extends KinematicBody2D
 
 var gravity_vector: Vector2 = Vector2(0, 400)
-export var move_speed_min:int = 22
-export var move_speed_max:int = 28
+export var move_speed_min:int = 30
+export var move_speed_max:int = 40
 var move_speed:float = 25
 var placed: bool = false
-onready var pawn_area: Area2D = $Area2D
 var dir = 0
 var flip_timer = 0
 onready var up_ray = $Up
@@ -31,6 +30,9 @@ func _ready() -> void:
 	modulate  = random_skin_tone()
 	
 func _physics_process(delta: float) -> void:
+	if position.y > 1000:
+		Autoload.pop -= 1
+		queue_free()
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	velocity += gravity_vector * delta
 	velocity.x = dir * move_speed
