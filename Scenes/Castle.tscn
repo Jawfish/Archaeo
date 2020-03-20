@@ -1,40 +1,53 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Images/castle.svg" type="Texture" id=1]
 [ext_resource path="res://Scripts/Castle.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Click"
-length = 0.33
-step = 0.01
-
-[sub_resource type="Animation" id=2]
-resource_name = "Despawn Button"
-length = 0.1
-
-[sub_resource type="Animation" id=3]
-length = 0.22
-step = 0.01
+resource_name = "Init"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("castle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -200 ), Vector2( 0, -200 ), Vector2( 0, 72 ), Vector2( 0, 72 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("castle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 0.9, 1, 1.05, 1.15, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.15 ), Vector2( 0.2, 0.22 ), Vector2( 0.2, 0.17 ), Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ) ]
+}
 
 [node name="Castle" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="castle" type="Sprite" parent="."]
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 0, 34.5 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+offset = Vector2( 10.7795, -403.362 )
 
 [node name="Spawn Point" type="Node2D" parent="."]
 position = Vector2( -1, 32 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 2.0
-anims/Click = SubResource( 1 )
-"anims/Despawn Button" = SubResource( 2 )
-"anims/Spawn Button" = SubResource( 3 )
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Init"
+anims/Init = SubResource( 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

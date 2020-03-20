@@ -78,7 +78,7 @@ tracks/1/keys = {
 }
 
 [node name="Powerup" type="Node2D"]
-scale = Vector2( 1.00113, 0.998871 )
+scale = Vector2( 1.07695, 0.923051 )
 z_index = 90
 z_as_relative = false
 script = ExtResource( 1 )
@@ -112,7 +112,7 @@ scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 5 )
 
 [node name="Click2" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.0425005 )
+modulate = Color( 1, 1, 1, 0.550668 )
 position = Vector2( 9.66294, 24.4467 )
 scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 4 )

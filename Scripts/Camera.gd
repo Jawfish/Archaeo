@@ -14,9 +14,9 @@ func _physics_process(delta: float) -> void:
 		position.y += pan_amount
 		
 func _input(event):
-	if Input.is_action_just_released("ui_up") and event.button_index == 4  and position.y > 200:
+	if Input.is_action_just_released("scroll_up")  and position.y > 200:
 		position.y -= pan_amount * 6
-	if Input.is_action_just_released("ui_down") and event.button_index == 5 and position.y < 950:
+	if Input.is_action_just_released("scroll_down") and event.button_index == 5 and position.y < 950:
 		position.y += pan_amount * 6
 
 func _ready():

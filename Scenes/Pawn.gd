@@ -5,11 +5,11 @@ export var move_speed_min:int = 30
 export var move_speed_max:int = 40
 var move_speed:float = 25
 var placed: bool = false
-var dir = 0
-var flip_timer = 0
+var dir = -1
 onready var up_ray = $Up
 onready var anim = $AnimationPlayer
 var dig_strength = rand_range(1,1.5)
+var default_scale = 0.25
 
 var payload = 0
 
@@ -27,7 +27,11 @@ func _ready() -> void:
 	anim.playback_speed = move_speed / move_speed_max
 	z_index = Autoload.random(-1,1)
 	dir = Autoload.random(-1,1)
-	modulate  = random_skin_tone()
+	var tone = random_skin_tone()
+	$Body.modulate  = tone
+	$Head.modulate  = tone
+	scale.x = scale.x * -dir	
+	
 	
 func _physics_process(delta: float) -> void:
 	if position.y > 1000:
@@ -36,13 +40,6 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	velocity += gravity_vector * delta
 	velocity.x = dir * move_speed
-	if is_on_wall():
-		flip_timer -= 1
-	else:
-		flip_timer = 25
-	if is_on_wall() and flip_timer <= 0:
-		flip_timer = 25
-		dir = -dir
 	if left_ray.is_colliding():
 		if left_ray.get_collider().get_parent().marked_for_digging == true:
 			dig(left_ray.get_collider())
@@ -56,6 +53,7 @@ func _physics_process(delta: float) -> void:
 		anim.playback_speed = 0.33
 	else:
 		anim.playback_speed = 1
+		
 	
 
 func random_skin_tone():
@@ -63,5 +61,15 @@ func random_skin_tone():
 	return skin_tones[floor(rand_range(0, skin_tones.size()))]
 	
 func dig(block):
+	anim.play("Dig")
 	block.get_parent().dig(dig_strength)
 	velocity.x = 0
+
+func flip():
+	scale.x = scale.x * -1
+	dir = -dir
+
+
+func _on_Timer_timeout():
+	if is_on_wall():
+		flip()

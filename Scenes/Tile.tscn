@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Images/Spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Tile.gd" type="Script" id=2]
@@ -43,6 +43,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Gem Init"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gem:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 2.2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -192,6 +208,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Dig = SubResource( 2 )
 "anims/Gem Found" = SubResource( 3 )
+"anims/Gem Init" = SubResource( 6 )
 anims/Init = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -199,7 +216,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Gem" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.333333 )
 scale = Vector2( 0.0540828, 0.0540827 )
 z_index = 60
 texture = ExtResource( 8 )

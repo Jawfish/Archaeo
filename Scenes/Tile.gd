@@ -35,6 +35,8 @@ func _ready() -> void:
 	elif spawn_rate < 0.05:
 		powerup = 2
 		$Powerup2.visible = true
+
+		
 		
 
 	

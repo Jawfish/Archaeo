@@ -18,8 +18,7 @@ extents = Vector2( 11.8665, 813.001 )
 script = ExtResource( 2 )
 
 [node name="Sky" type="Sprite" parent="."]
-position = Vector2( 1583.69, 38021.9 )
-scale = Vector2( 3300.81, 76184.3 )
+position = Vector2( 230.851, 507.272 )
 z_index = -999
 texture = ExtResource( 4 )
 
@@ -78,7 +77,7 @@ stream = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -15.0
+volume_db = -10.0
 autoplay = true
 
 [node name="Error" type="AudioStreamPlayer" parent="."]
