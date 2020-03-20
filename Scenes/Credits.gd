@@ -21,4 +21,10 @@ func _on_TextureButton_pressed():
 
 
 func _on_Back_pressed():
+	Autoload.gems = 0
+	Autoload.pop_cap = 10
+	Autoload.pop = 0
+	Autoload.depth = 0
+	Autoload.timer = 10
+	Autoload.happiness = 60
 	get_tree().change_scene("res://Scenes/Splash.tscn")

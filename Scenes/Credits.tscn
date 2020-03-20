@@ -109,10 +109,10 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="Credits/Music"]
-margin_left = 145.0
-margin_top = 48.0
-margin_right = 1046.0
-margin_bottom = 142.0
+margin_left = -25.0
+margin_top = -2.0
+margin_right = 876.0
+margin_bottom = 92.0
 mouse_default_cursor_shape = 2
 __meta__ = {
 "_edit_use_anchors_": false

@@ -13,6 +13,7 @@ onready var powerup_3_sprite = load("res://Assets/Images/happy.png")
 var colorblind_color: Color = Color(0.75,0.75,1.25)
 var normal_color: Color = Color(1.2,1.2,0.9)
 
+var mute = false
 var timer = 10
 var happiness = 60
 var spawn_rate:float = 1

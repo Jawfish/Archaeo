@@ -84,3 +84,7 @@ func _on_TextureButton2_pressed() -> void:
 		bomb_ready = true
 		$Bomb.modulate = Color(1,1,1,1)
 		Input.set_custom_mouse_cursor(Autoload.cursor)
+
+
+func _on_Mute_pressed():
+	Autoload.mute = !Autoload.mute

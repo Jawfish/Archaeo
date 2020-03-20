@@ -59,6 +59,11 @@ position = Vector2( 266, 900 )
 scale = Vector2( 1, 100 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 126, 0 )
+scale = Vector2( 1, 100 )
+shape = SubResource( 1 )
+
 [node name="Light2D" type="Light2D" parent="."]
 modulate = Color( 1, 1, 1, 0.501961 )
 texture = ExtResource( 6 )
@@ -73,7 +78,7 @@ stream = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="Error" type="AudioStreamPlayer" parent="."]

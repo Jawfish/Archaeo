@@ -13,10 +13,16 @@ onready var MAP_WIDTH: int = 16
 onready var MAP_HEIGHT: int = 70
 onready var light: Light2D = $Light2D
 onready var timer: Timer = $"Powerup Timer"
+onready var music: AudioStreamPlayer = $AudioStreamPlayer
+
 
 func _process(delta: float) -> void:
 	Autoload.mouse_pos = get_global_mouse_position()
 	light.position = Autoload.mouse_pos
+	if Autoload.mute:
+		music.volume_db = -999
+	else:
+		music.volume_db = -15
 	
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(Autoload.cursor)

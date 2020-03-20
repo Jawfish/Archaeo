@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Powerup.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/clock_plus.svg" type="Texture" id=2]
 [ext_resource path="res://Assets/Sounds/chime.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Images/left_mouse2.svg" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/left_mouse.svg" type="Texture" id=5]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Ded"
 loop = true
+step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -46,9 +49,9 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Loop"
+[sub_resource type="Animation" id=2]
 loop = true
+step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -61,8 +64,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.9 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Click2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Powerup" type="Node2D"]
+scale = Vector2( 1.00113, 0.998871 )
 z_index = 90
 z_as_relative = false
 script = ExtResource( 1 )
@@ -79,8 +95,8 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Loop"
 playback_speed = 2.0
-anims/Ded = SubResource( 2 )
-anims/Loop = SubResource( 1 )
+anims/Ded = SubResource( 1 )
+anims/Loop = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -89,5 +105,16 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Click1" type="Sprite" parent="."]
+position = Vector2( 9.66294, 24.4467 )
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="Click2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.0425005 )
+position = Vector2( 9.66294, 24.4467 )
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 4 )
 [connection signal="button_down" from="TextureButton" to="." method="_on_TextureButton_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
