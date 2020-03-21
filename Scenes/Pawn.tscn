@@ -1,19 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Images/Pawn.svg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawn.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/cursor.svg" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/head.svg" type="Texture" id=4]
+[ext_resource path="res://Assets/Sounds/scream.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Images/eye.svg" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.7647, 18.4723 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Dig"
 length = 0.2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Shovel:rotation_degrees")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,9 +26,32 @@ tracks/0/keys = {
 "update": 0,
 "values": [ -100.0, -115.0, -130.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -12 ), Vector2( -1.42892, -5.80798 ), Vector2( 0, -12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.06, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -26.0, 0.0 ]
+}
 
-[sub_resource type="Animation" id=2]
-resource_name = "Walk"
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 step = 0.05
@@ -36,10 +62,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 6 ), Vector2( 0, 4 ), Vector2( 0, 4 ), Vector2( 0, 6 ) ]
+"values": [ Vector2( 0, 6 ), Vector2( 0, 4 ), Vector2( 0, 6 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Head:position")
@@ -48,10 +74,22 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.55 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -12 ), Vector2( 0, -16 ), Vector2( 0, -16 ), Vector2( 0, -12 ) ]
+"values": [ Vector2( 0, -12 ), Vector2( 0, -16 ), Vector2( 0, -12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shovel:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -13.3423, -18.3651 ), Vector2( -13.342, -24 ), Vector2( -13.342, -18.365 ) ]
 }
 
 [node name="Pawn" type="KinematicBody2D" groups=[
@@ -67,15 +105,8 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Walk"
-anims/Dig = SubResource( 3 )
-anims/Walk = SubResource( 2 )
-
-[node name="Up" type="RayCast2D" parent="."]
-position = Vector2( 0, -16 )
-rotation = 3.14159
-enabled = true
-cast_to = Vector2( 0, 1 )
-collision_mask = 4
+anims/Dig = SubResource( 2 )
+anims/Walk = SubResource( 3 )
 
 [node name="Down" type="RayCast2D" parent="."]
 position = Vector2( 0, 20 )
@@ -98,23 +129,37 @@ cast_to = Vector2( 0, 1 )
 collision_mask = 4
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 0, 6 )
+position = Vector2( 0, 5.509 )
 scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 1 )
 
 [node name="Head" type="Sprite" parent="."]
-position = Vector2( 0, -12 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( 0, -13.9518 )
+scale = Vector2( 0.05, 0.05 )
 z_index = 1
-texture = ExtResource( 1 )
+texture = ExtResource( 4 )
+
+[node name="eye" type="Sprite" parent="Head"]
+position = Vector2( -89.5854, -25.4578 )
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 6 )
+
+[node name="eye2" type="Sprite" parent="Head"]
+position = Vector2( 4.61029, -25.8173 )
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [node name="Shovel" type="Sprite" parent="."]
-position = Vector2( -13.3423, -18.3651 )
-rotation = -2.00713
+position = Vector2( -13.342, -22.2071 )
+rotation = -2.26893
 scale = Vector2( 0.066, 0.066 )
 texture = ExtResource( 3 )
 offset = Vector2( -202.4, -197.162 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

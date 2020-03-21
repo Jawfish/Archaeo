@@ -25,5 +25,5 @@ position = Vector2( 3, -9 )
 [node name="Grass Blades8" parent="Sprite" index="4" instance=ExtResource( 3 )]
 position = Vector2( 6, -9 )
 
-[node name="StaticBody2D" parent="." index="1"]
+[node name="StaticBody2D" parent="." index="3"]
 collision_layer = 4

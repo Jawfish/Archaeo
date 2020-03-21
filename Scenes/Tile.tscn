@@ -45,7 +45,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Gem Init"
 length = 5.0
 tracks/0/type = "value"
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:position")
@@ -141,7 +141,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 26.1841, 25.8159 )
 
 [node name="Tile" type="Node2D" groups=[
@@ -208,15 +208,15 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Dig = SubResource( 2 )
 "anims/Gem Found" = SubResource( 3 )
-"anims/Gem Init" = SubResource( 6 )
-anims/Init = SubResource( 4 )
+"anims/Gem Init" = SubResource( 4 )
+anims/Init = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
 [node name="Gem" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.333333 )
+modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.0540828, 0.0540827 )
 z_index = 60
 texture = ExtResource( 8 )
@@ -224,7 +224,7 @@ texture = ExtResource( 8 )
 [node name="Discover Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Discover Area"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Woosh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )

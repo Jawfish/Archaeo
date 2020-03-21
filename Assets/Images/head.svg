@@ -9,16 +9,16 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="183.98949"
-   height="183.98949"
-   viewBox="0 0 43.812503 43.812501"
+   width="387.95273"
+   height="387.95276"
+   viewBox="0 0 92.381259 92.381258"
    version="1.1"
    id="svg836"
    inkscape:export-filename="/home/james/Development/Archaeo/Assets/Images/singleplayer.png"
    inkscape:export-xdpi="137.23"
    inkscape:export-ydpi="137.23"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="Pawn.svg">
+   sodipodi:docname="head.svg">
   <defs
      id="defs830" />
   <sodipodi:namedview
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="21.795447"
-     inkscape:cx="88.94099"
-     inkscape:cy="119.7926"
+     inkscape:zoom="7.7058541"
+     inkscape:cx="73.801871"
+     inkscape:cy="41.864702"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -39,10 +39,10 @@
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     fit-margin-top="50"
-     fit-margin-left="50"
-     fit-margin-right="50"
-     fit-margin-bottom="50"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5"
      scale-x="0.9"
      units="px" />
   <metadata
@@ -53,7 +53,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,14 +61,31 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-59.719962,-119.3025)">
-    <circle
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.26618588;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     transform="translate(-70.435592,-60.018116)">
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:5.69783688;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path2050"
-       cx="81.626213"
-       cy="141.20876"
+       cx="116.62622"
+       cy="106.20875"
        inkscape:export-xdpi="650.23999"
        inkscape:export-ydpi="650.23999"
-       r="9.3669071" />
+       rx="42.151085"
+       ry="42.151089" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.05000114;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="path2427"
+       cx="119.40076"
+       cy="38.306526"
+       rx="4.0531926"
+       ry="6.3114004"
+       transform="rotate(28.822431)" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.05000114;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="path2427-7"
+       cx="149.78006"
+       cy="20.730732"
+       rx="4.0531921"
+       ry="6.3114004"
+       transform="rotate(28.822431)" />
   </g>
 </svg>

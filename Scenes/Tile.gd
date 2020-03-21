@@ -4,7 +4,6 @@ class_name Tile
 var health: float
 export var max_health: float
 var marked_for_digging = false
-var index: Vector2
 var hover:bool = false
 var digging: bool = false
 onready var particles: PackedScene = preload("res://Scenes/Particles.tscn")
@@ -23,17 +22,22 @@ onready var click = $Click
 onready var world = $"/root/World"
 onready var err = world.find_node("Error")
 onready var succ = world.find_node("Success")
-func _ready() -> void:
+enum powerups {NONE, TIME_DOWN, POP_UP}
+var time_down_chance = 0.1
+var pop_up_chance = 0.1
+var gem_chance = 0.1
 
+
+func _ready() -> void:
 	randomize()
-	var spawn_rate = randf()
-	if spawn_rate > 0.2 and spawn_rate < 0.3:
+	print(time_down_chance)
+	if randf() < gem_chance:
 		is_gem = true
-	if spawn_rate > 0.05 and spawn_rate < 0.2:
-		powerup = 1
+	elif randf() < time_down_chance:
+		powerup = powerups.TIME_DOWN
 		$Powerup1.visible = true
-	elif spawn_rate < 0.05:
-		powerup = 2
+	elif randf() < pop_up_chance:
+		powerup = powerups.POP_UP
 		$Powerup2.visible = true
 
 		
@@ -63,14 +67,12 @@ func _process(delta: float) -> void:
 			err.pitch_scale = rand_range(0.9,1.1)
 			err.play()
 		elif powerup == 2:
-			Autoload.pop_cap += 1
+			Autoload.pop_cap += 2
 			succ.pitch_scale = rand_range(0.9,1.1)
 			succ.play()
 		var p = particles.instance()
 		p.position = position
 		get_tree().get_root().add_child(p)
-		if Autoload.camera_shake:
-			get_parent().find_node("Camera2D").trauma = 0.1
 		if position.y > Autoload.depth:
 			Autoload.depth = position.y
 		world.get_child(8).position = position
@@ -84,24 +86,21 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("click"):
 			if not Autoload.bombing and not marked_for_digging:
 				mark()
-			if Autoload.bombing:
-				dig(9999999)
-				Autoload.bombing = false
 				Input.set_custom_mouse_cursor(Autoload.cursor)
 		elif Input.is_action_pressed("rclick") and not Autoload.bombing and marked_for_digging:
 			unmark()
 		
 
-func dig(dig_strength: int):
+func dig():
 	angle = max_angle * (1-health/max_health)
 	sprite.rotation_degrees = lerp(sprite.rotation_degrees,Autoload.random(angle,-angle), 0.05)
 	timer.start()
 	digging = true
 	if digging:
 		hp_bar.visible = true
-	hp_bar.value = floor(health/max_health * 100)
+	hp_bar.value = health/max_health * 100
 	$AnimationPlayer.play("Dig")
-	health -= dig_strength
+	health -= 1
 
 func mark():
 	anim.playback_speed = 1	

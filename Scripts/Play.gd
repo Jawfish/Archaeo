@@ -17,4 +17,4 @@ func _ready() -> void:
 
 
 func _on_TextureButton_button_down() -> void:
-	get_tree().change_scene("res://Scenes/World.tscn")
+	get_tree().change_scene_to(Autoload.world)

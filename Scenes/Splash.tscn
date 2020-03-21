@@ -27,7 +27,6 @@ extents = Vector2( 111.206, 151.156 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
-outline_size = 2
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
@@ -247,7 +246,6 @@ __meta__ = {
 }
 
 [node name="Logo" type="Node2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -75 )
 
 [node name="Head" type="Sprite" parent="Logo"]
@@ -280,7 +278,7 @@ texture = ExtResource( 9 )
 position = Vector2( 10, 125 )
 
 [node name="GWJ-19-WC-1" type="Sprite" parent="Wildcards"]
-position = Vector2( 200, 300 )
+position = Vector2( 200, 725 )
 texture = ExtResource( 4 )
 script = ExtResource( 11 )
 __meta__ = {
@@ -305,8 +303,7 @@ margin_top = -260.0
 margin_right = 131.0
 margin_bottom = -161.0
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.0784314, 0.133333, 0.25098, 1 )
-custom_colors/font_outline_modulate = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_colors/font_color = Color( 0.980392, 0.380392, 0.286275, 1 )
 text = "All    information    is 
 conveyed     through
 icons"
@@ -320,7 +317,7 @@ __meta__ = {
 "anims/Mouse Exit" = SubResource( 5 )
 
 [node name="GWJ-19-WC-2" type="Sprite" parent="Wildcards"]
-position = Vector2( 500, 300 )
+position = Vector2( 500, 721.948 )
 texture = ExtResource( 6 )
 script = ExtResource( 11 )
 __meta__ = {
@@ -334,15 +331,13 @@ modulate = Color( 1, 1, 1, 0 )
 shape = SubResource( 2 )
 
 [node name="Label2" type="Label" parent="Wildcards/GWJ-19-WC-2/Area2D"]
-margin_left = -225.552
-margin_top = -259.018
-margin_right = 221.448
-margin_bottom = -160.018
+margin_left = -226.0
+margin_top = -223.0
+margin_right = 221.0
+margin_bottom = -158.0
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.0784314, 0.133333, 0.25098, 1 )
-custom_colors/font_outline_modulate = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_colors/font_color = Color( 0.980392, 0.380392, 0.286275, 1 )
 text = "Colorblind     options
-motion      sickness     options
 ambidextrous     control    scheme"
 align = 1
 __meta__ = {
@@ -354,7 +349,7 @@ __meta__ = {
 "anims/Mouse Exit" = SubResource( 7 )
 
 [node name="GWJ-19-WC-3" type="Sprite" parent="Wildcards"]
-position = Vector2( 800, 300 )
+position = Vector2( 800, 719.2 )
 texture = ExtResource( 5 )
 script = ExtResource( 11 )
 __meta__ = {
@@ -373,8 +368,7 @@ margin_top = -213.745
 margin_right = 169.72
 margin_bottom = -159.745
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.0784314, 0.133333, 0.25098, 1 )
-custom_colors/font_outline_modulate = Color( 0.980392, 0.380392, 0.286275, 1 )
+custom_colors/font_color = Color( 0.980392, 0.380392, 0.286275, 1 )
 text = "tiles    can    be    destroyed"
 align = 1
 valign = 2
@@ -387,7 +381,7 @@ __meta__ = {
 "anims/Mouse Exit" = SubResource( 9 )
 
 [node name="Play" type="Sprite" parent="."]
-position = Vector2( 504.171, 90 )
+position = Vector2( 504.171, -66.3111 )
 scale = Vector2( 0.476881, 0.476881 )
 z_index = -1
 texture = ExtResource( 8 )
@@ -409,7 +403,6 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
-trauma = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Init"

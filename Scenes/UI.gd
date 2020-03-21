@@ -4,31 +4,30 @@ onready var anim: AnimationPlayer = $AnimationPlayer
 onready var progress: Label = $Node2D/Happiness/Label
 onready var pop: Label = $Node2D/Population/Label
 onready var gems: Label = $Node2D/Gem/Label
-var controls_visible = true
+onready var gear: Texture = load("res://Assets/Images/gear.svg")
+onready var gear2: Texture = load("res://Assets/Images/gear2.svg")
+
 #onready var bomb_timer: Timer = $Bomb/Timer
 #var bomb_ready = true
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$"Bomb/Bomb Anim".play("Bomb Ready")
+#func _ready() -> void:
+#	$"Bomb/Bomb Anim".play("Bomb Ready")
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("rclick") and Autoload.bombing:
-		Autoload.bombing = false
-#		bomb_ready = true
-		$Bomb.modulate = Color(1,1,1,1)
-		Input.set_custom_mouse_cursor(Autoload.cursor)
-	
-	if (Input.is_action_pressed("scroll_down") or Input.is_action_pressed("scroll_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up")) and controls_visible:
-		$Controls.visible = false
-		$Controls2.visible = false
-		controls_visible = false
+#func _input(event: InputEvent) -> void:
+#	if Input.is_action_just_pressed("rclick") and Autoload.bombing:
+#		Autoload.bombing = false
+##		bomb_ready = true
+#		$Bomb.modulate = Color(1,1,1,1)
+#		Input.set_custom_mouse_cursor(Autoload.cursor)
 
 func _process(delta: float) -> void:
-	pop.text = str(Autoload.pop) + "/" + str(Autoload.pop_cap)
 	if int(gems.text) < Autoload.gems:
 		$Gem2.play()
 		anim.play("Gem Get")
 	gems.text = str(Autoload.gems)
+	if int(pop.text.right(2)) < Autoload.pop_cap:
+		anim.play("Pop Up")
+	pop.text = str(Autoload.pop) + "/" + str(Autoload.pop_cap)
 #	if Autoload.bombing == false and bomb_timer.is_stopped():
 #		bomb_timer.start()
 #	if bomb_ready:
@@ -50,25 +49,17 @@ func _on_SpawnPawn_toggled(button_pressed: bool) -> void:
 
 
 func _on_TextureButton_toggled(button_pressed: bool) -> void:
+	Autoload.colorblind = button_pressed
 	if button_pressed:
-		anim.play("Options Menu")
-	else:
-		anim.play_backwards("Options Menu")
-		
-
-
-func _on_Colorblind_toggled(button_pressed: bool) -> void:
-	Autoload.colorblind = button_pressed # Replace with function body.
-	if Autoload.colorblind:
+		$TextureButton/Sprite.texture = gear2
 		for tile in get_tree().get_nodes_in_group("Tiles"):
 			if tile.marked_for_digging:
 				tile.modulate = Autoload.colorblind_color
 	else:
+		$TextureButton/Sprite.texture = gear
 		for tile in get_tree().get_nodes_in_group("Tiles"):
 			if tile.marked_for_digging:
 				tile.modulate = Autoload.normal_color
-
-
 
 func _on_Motion_Sickness_toggled(button_pressed: bool) -> void:
 	Autoload.camera_shake = !button_pressed
@@ -93,4 +84,9 @@ func _on_Motion_Sickness_toggled(button_pressed: bool) -> void:
 
 
 func _on_Mute_pressed():
-	Autoload.mute = !Autoload.mute
+	Autoload.mute()
+
+
+func _on_Control_Icon_Despawn_timer_timeout() -> void:
+	$Controls.free()
+	$Controls2.free()
