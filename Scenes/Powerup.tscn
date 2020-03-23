@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Powerup.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Powerup.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/clock_plus.svg" type="Texture" id=2]
 [ext_resource path="res://Assets/Sounds/chime.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Images/left_mouse2.svg" type="Texture" id=4]

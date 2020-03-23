@@ -1,11 +1,12 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Images/Pawn.svg" type="Texture" id=1]
-[ext_resource path="res://Scenes/Pawn.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Pawn.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/cursor.svg" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/head.svg" type="Texture" id=4]
 [ext_resource path="res://Assets/Sounds/scream.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Images/eye.svg" type="Texture" id=6]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.7647, 18.4723 )

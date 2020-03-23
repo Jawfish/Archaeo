@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Tile",
 "language": "GDScript",
-"path": "res://Scenes/Tile.gd"
+"path": "res://Scripts/Tile.gd"
 } ]
 _global_script_class_icons={
 "Tile": ""
@@ -130,3 +130,4 @@ quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.321569, 0.196078, 0.482353, 1 )

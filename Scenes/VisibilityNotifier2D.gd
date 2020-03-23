@@ -1,2 +1,0 @@
-extends VisibilityNotifier2D
-

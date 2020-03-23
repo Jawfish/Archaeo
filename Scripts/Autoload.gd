@@ -1,5 +1,13 @@
 extends Node
 
+signal cb
+
+onready var powerup_1_sprite = load("res://Assets/Images/clock.svg")
+onready var powerup_2_sprite = load("res://Assets/Images/Pawn.png")
+onready var powerup_3_sprite_alt = load("res://Assets/Images/pawn_blue.png")
+onready var powerup_3_sprite = load("res://Assets/Images/happy.png")
+onready var default_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+onready var clunk = load("res://Assets/Sounds/clunk.wav")
 var grass: PackedScene = preload("res://Scenes/Grass.tscn")
 var dirt: PackedScene = preload("res://Scenes/Dirt.tscn")
 var rock: PackedScene = preload("res://Scenes/Rock.tscn")
@@ -9,16 +17,14 @@ var game_over: PackedScene = preload("res://Scenes/Game Over.tscn")
 var cursor = load("res://Assets/Images/cursor.png")
 var bomb_cursor = load("res://Assets/Images/bomb_cursor.png")
 var discover_area = preload("res://Scenes/Discover Area.tscn")
-onready var powerup_1_sprite = load("res://Assets/Images/clock.svg")
-onready var powerup_2_sprite = load("res://Assets/Images/Pawn.png")
-onready var powerup_3_sprite = load("res://Assets/Images/happy.png")
-onready var default_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-onready var clunk = load("res://Assets/Sounds/clunk.wav")
-
+var gem_sprite = load("res://Assets/Images/gem.svg")
+var pop_up_sprite = load("res://Assets/Images/Pawn.png")
+var time_down_sprite = load("res://Assets/Images/clock_minus.svg")
+var click: AudioStreamPlayer2D
+var woosh: AudioStreamPlayer2D
 
 var colorblind_color: Color = Color(0.75,0.75,1.25)
 var normal_color: Color = Color(1.2,1.2,0.9)
-
 var timer = 10
 var happiness = 60
 var spawn_rate:float = 1
@@ -31,8 +37,6 @@ var map_generated: bool = false
 var left: bool = true
 var bombing = false
 var mouse_pos
-var woosh = load("res://Assets/Sounds/woosh.ogg")
-var click = load("res://Assets/Sounds/click.wav")
 var muted:bool = false
 
 func _process(delta: float) -> void:

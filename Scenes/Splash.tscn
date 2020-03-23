@@ -12,7 +12,7 @@
 [ext_resource path="res://Scripts/SplashCamera.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Wildcard.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Sounds/grind.wav" type="AudioStream" id=12]
-[ext_resource path="res://Scenes/Splash.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/Splash.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Sounds/grind2.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Sounds/clunk.wav" type="AudioStream" id=15]
 
